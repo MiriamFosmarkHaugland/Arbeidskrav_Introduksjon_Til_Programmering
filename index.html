@@ -1,0 +1,136 @@
+<!--This is written by Miriam.Fosmark.Haugland-->
+<!-- Everything is written by me in english and i have not used any of the code in the "preset" HTML file we were given in the start -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdventureLand - Final Boss Battle</title>
+    <!-- I have made my own CSS, not used the premade one at all -->
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- Emote and healt bar for the heros -->
+        <div class="emote_and_hp_container">
+
+            <!-- The archer named "Ashe" and her health bar as a progress bar + icon in top left corner 
+                - I chose a progress bar because its quicker and easier to set a max value and 
+                    implement it in the JS. -->
+            <div class="emote_and_hp">
+                <img class="emote" src="images/ashe_emote.png" alt="ashe">
+                <progress id="ashe_hp_bar" class="healthbar" max="100" value="100"></progress>
+            </div>
+
+
+            <!-- The knight named "Garen" and his health bar as a progress bar + icon in top left corner -->
+            <div class="emote_and_hp">
+                <img class="emote" src="images/garen_emote.png" alt="garen">
+                <progress id="garen_hp_bar" class="healthbar" max="100" value="100"></progress>
+            </div>
+
+
+            <!-- The cat named "Warwick" and his health bar as a progress bar + icon in top left corner -->
+            <div class="emote_and_hp">
+                <img class="emote" src="images/warwick_emote.png" alt="warwick">
+                <progress id="warwick_hp_bar" class="healthbar" max="100" value="100"></progress>
+            </div>
+
+        </div> <!-- end container-->
+
+
+
+        <!-- Emote and health bar for the enemies -->
+        <div class="emote_and_hp_container">
+
+            <!-- The big evil boss named "Baron" and his health bar as a progress bar + icon in top right corner -->
+            <div class="emote_and_hp">
+                <progress id="baron_hp_bar" class="healthbar" max="100" value="100"></progress>
+                <img id="baron_emote" class="emote" src="images/baron_emote.png" alt="baron">
+            </div>
+
+
+            <!-- The "slime" named "Meele minion" and his health bar as a progress bar + icon in top right corner 
+                i display an hp bar even for minions (Slime and Bat) because we then can see our game progress better. -->
+            <div class="emote_and_hp">
+                <progress id="minion1_hp_bar" class="healthbar" max="100" value="100"></progress>
+                <img class="emote" src="images/minion_emote.png" alt="minion">
+            </div>
+
+
+            <!-- The "bat" named "Castor minion" and his health bar as a progress bar + icon in top right corner -->
+            <div class="emote_and_hp">
+                <progress id="minion2_hp_bar" class="healthbar" max="100" value="100"></progress>
+                <img class="emote" src="images/minion_emote.png" alt="minion">
+            </div>
+
+        </div> <!-- end container-->
+
+
+        <!-- Text displayes on screen as attacks are fired -->
+        <p id="output"></p>
+
+
+        <!-- The archer named "Ashe", her image and her champion stats that displays when she is hovered -->
+        <div id="ashe" onclick=champion_click(event)>
+            <img id="ashe_image" src="images/ashe.png" data-champion="ashe" alt="ashe">
+            <p class="hidden_text">Champion stats archer: <br> Ashe need arrows to attack <br> Ashe can attack all
+                enemies <br> Ashe can only kill Baron</p>
+        </div>
+
+
+        <!-- The cat named "Warwick", his image and his champion stats that displays when he is hovered -->
+        <div id="warwick" onclick=champion_click(event)>
+            <img id="warwick_image" src="images/warwick.png" data-champion="warwick" alt="warwick">
+            <p class="hidden_text">Champion stats "the cat": <br> Warwick can attack all enemies <br> Warwick can only
+                kill the meele minion</p>
+            </div>
+            
+
+            <!-- The knight named "Garen", his image and his champion stats that displays when he is hovered -->
+            <div id="garen" onclick=champion_click(event)>
+                <img id="garen_image" src="images/garen.png" data-champion="garen" alt="garen">
+                <p class="hidden_text">Champion stats knight: <br> Garen can attack all enemies <br> Garen can only kill the
+                    caster minion</p>
+            </div>
+            
+
+        <!-- The healer named "Soraka", her image and her champion stats that displays when she is hovered -->
+        <div id="soraka" onclick=champion_click(event)>
+            <img id="soraka_image" src="images/soraka.webp" data-champion="soraka" alt="soraka">
+            <p class="hidden_text">Champion stats healer: <br> Soraka heals the teammate with the lowest HP <br> Soraka
+                can res a dead champion, but not if all teammates are dead</p>
+        </div>
+
+
+        <!-- The lumberjack named "Jack", his image and his champion stats that displays when he is hovered -->
+        <div id="jack_the_lumberjack" onclick=champion_click(event)>
+            <img id="jack_the_lumberjack_image" src="images/jack.webp" data-champion="jack_the_lumberjack" alt="jack the lumberjack">
+            <p class="hidden_text">Champion stats the Lumberjack: <br> Jack gives Ashe a 50% chance of getting arrows</p>
+        </div>
+
+
+        <!-- The big evil boss named "Baron" and his image -->
+        <div id="baron">
+            <img src="images/baron.png" alt="baron">
+        </div>
+
+
+        <!-- The slime named "Meele minion" and his image, he is hidden in the CSS, but in JS i display him with a 25% chance of showing -->
+        <img id="minion1" src="images/red_meele_minion.webp" alt="meele minion">
+
+
+        <!-- The bat named "Caster minion" and his image he is hidden in the CSS, but in JS i display him with a 25% chance of showing -->
+        <img id="minion2" src="images/red_caster_minion.webp" alt="caster minion">
+
+    </div> <!-- end container-->
+
+    <script src="script.js"></script>
+</body>
+
+</html>

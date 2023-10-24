@@ -1,0 +1,226 @@
+/*This is written by Miriam.Fosmark.Haugland in english*/
+/*Everything is written by me, i have not used any of the code in the "preset" CSS file we were given in the start*/
+
+/*I want my wallpaper to take 100% of all useable space, so i also removed the default margin that's there*/
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+/*Container holds the wallpaper and puts an even space between the heros and enemies health bars + emotes by using flex-box*/
+.container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    background: url(images/wallpaper.svg) no-repeat bottom center fixed;
+    background-size: cover;
+}
+
+/*Baron emote is different from the other emotes, i chose to make it slightly smaller by scaling it down*/
+#baron_emote {
+    scale: 0.7;
+}
+
+/*Emote and HP container for both heros (left side) and enemies (right side)*/
+.emote_and_hp_container {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    z-index: 1;
+}
+
+.emote_and_hp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*Since the healthbar is a progress bar, i did -webkit-apparence: none; to remove the default settings so i could customise it myself*/
+.healthbar {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 30px;
+    width: 70%;
+}
+
+/*All emote sizes are the same size*/
+.emote {
+    width: 25%;
+}
+
+/*I chose to put in a custom font*/
+@font-face {
+    font-family: "league_of_legends_font";
+    src: url(Fonts/BeaufortForLoL-OTF/BeaufortforLOL-Bold.otf);
+}
+
+/*The output text of each attack will be printed out at top middle*/
+#output {
+    position: absolute;
+    text-align: center;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: "league_of_legends_font";
+    font-size: 30px;
+    color: black;
+    margin: 0;
+    z-index: 1;
+}
+
+/*Text will be displayed when hovered over, will show champion stats to you can read what they do*/
+.hidden_text {
+    display: none;
+    position: absolute;
+    font-family: "league_of_legends_font";
+}
+
+/*Here comes each hero and enemies position and hover effect that shows champion stats*/
+/*Archer*/
+#ashe {
+    display: flex;
+    position: absolute;
+    top: 2%;
+    left: 35%;
+    width: auto;
+    height: 35%;
+    cursor: pointer;
+}
+
+/*Archer*/
+#ashe_image:hover + .hidden_text {
+    display: block;
+    font-size: 85%;
+    top: 20%;
+    left: 5%;
+    width: 100%;
+}
+
+/*Cat*/
+#warwick {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    right: 34%;
+    width: auto;
+    height: 30%;
+    z-index: 1;
+    cursor: pointer;
+}
+
+/*Cat*/
+#warwick_image:hover + .hidden_text {
+    display: block;
+    font-size: 90%;
+    bottom: 63%;
+    left: 72%;
+    width: 100%;
+    color: white;
+}
+
+/*Knight*/
+#garen {
+    display: flex;
+    position: absolute;
+    bottom: 8%;
+    left: 34%;
+    width: auto;
+    height: 35%;
+    cursor: pointer;
+    z-index: 1;
+}
+
+/*Knight*/
+#garen_image:hover + .hidden_text {
+    display: block;
+    font-size: 90%;
+    bottom: 45%;
+    left: 85%;
+    width: 100%;
+    color: white;
+}
+
+/*Healer*/
+#soraka {
+    display: flex;
+    position: absolute;
+    bottom: 26%;
+    left: 10%;
+    width: auto;
+    height: 30%;
+    cursor: pointer;
+    z-index: 1;
+}
+
+/*Healer*/
+#soraka_image:hover + .hidden_text {
+    display: block;
+    font-size: 85%;
+    top: 25%;
+    right: 55%;
+    width: 100%;
+    color: white;
+}
+
+/*Jack the Lumberjack*/
+#jack_the_lumberjack {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    left: 1%;
+    width: auto;
+    height: 25%;
+    cursor: pointer;
+    z-index: 1;
+}
+
+/*Jack the Lumberjack*/
+#jack_the_lumberjack_image:hover + .hidden_text {
+    display: block;
+    font-size: 90%;
+    top: 0;
+    left: 80%;
+    width: 100%;
+    color: white;
+}
+
+/*Champions scales a tiny bit bigger when hovered over*/
+.champion:hover {
+    transform: scale(1.1)
+}
+
+/*Boss*/
+#baron {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+    left: 40%;
+    width: auto;
+    height: 70%;
+    -webkit-mask-image: linear-gradient(to top, transparent 0%, black 20%);
+    mask-image: linear-gradient(to top, transparent 20%, black 55%);
+}
+
+/*Slime*/
+#minion1 {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    right: 19%;
+    width: auto;
+    height: 23%;
+}
+
+/*Bat*/
+#minion2 {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    right: 5%;
+    width: auto;
+    height: 20%;
+}
